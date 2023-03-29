@@ -85,8 +85,9 @@
 
 .githubButton {
     display: flex;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-end;
     flex-direction: column;
 
-    height: 10%;
+    height: 1%;
 }
