@@ -38,6 +38,10 @@
     transition: .3s;
 }
 
+.navbar button.active {
+    opacity: .5;
+}
+
 .navbar button:hover {
     opacity: .5;
 }
@@ -51,7 +55,7 @@
     height: 15%;
 }
 
-.navbar .icon{
+.navbar .icon {
     width: 60px;
     height: 60px;
     padding: 10px;
@@ -70,11 +74,19 @@
     align-items: center;
     flex-direction: column;
 
-    height: 85%;
+    height: 75%;
 }
 
-.navButtons button span {
+.navbar button span {
     margin: 5px 0;
 
     font-size: 14px;
+}
+
+.githubButton {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    height: 10%;
 }

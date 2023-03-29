@@ -4,6 +4,7 @@ import Weather from "./components/Weather";
 import AirConditions from "./components/AirConditions";
 import WeatherInfo from "./components/WeatherInfo";
 import SearchBar from "./components/SearchBar";
+import WeekForecast from "./components/WeekForecast";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <WeatherInfo/>
         <AirConditions/>
       </div>
+      <WeekForecast/>
     </div>
   );
 }

@@ -20,7 +20,7 @@ function WeatherInfo() {
             <WiThermometer className="icon" />
             Max Temp
           </p>
-          <span>64%</span>
+          <span>0.98°C</span>
         </div>
         <div className="infoContainer">
           <p>
