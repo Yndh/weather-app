@@ -1,0 +1,49 @@
+.airConditionContainer {
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    flex-direction: column;
+
+    width: 40%;
+    height: 30%;
+    padding: 1rem 2rem;
+
+    background: #212d3c;
+    color: white;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+.airConditionContainer p{
+    font-size: 14px;
+
+    opacity: .7;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.airConditionContainer .icon{
+    padding-right: 5px;
+
+    font-size: 32px;
+
+    transform: translateY(10px);
+    box-sizing: border-box;
+}
+
+.conditionContainer{
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+
+    width: auto;
+
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+.conditionContainer span{
+    margin-left: 2rem;
+
+    font-size: 25px;
+    font-weight: bold;
+}

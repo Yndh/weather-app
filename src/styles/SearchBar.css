@@ -1,0 +1,28 @@
+.searchBarContainer {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: row;
+
+    width: 40%;
+    padding: 1rem 2rem;
+    margin-bottom: 1rem;
+
+    background: #212d3c;
+    color: white;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+.searchBarContainer input{
+    width: 100%;
+    height: 100%;
+    padding: 5px 10px;
+
+    font-size: 14px;
+
+    color: white;
+    background: transparent;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+}

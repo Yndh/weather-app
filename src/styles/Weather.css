@@ -1,0 +1,49 @@
+.forecastContainer{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+
+    width: 40%;
+    height: 30%;
+    padding: 1rem 3rem;
+    margin-bottom: 1rem;
+
+    background: #212d3c;
+    color: white;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+.forecastInfo{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    width: 50%;
+}
+.forecastInfo .cityName{
+    margin-bottom: 5px;
+}
+.forecastInfo .countryName{
+    opacity: .8;
+}
+.forecastInfo .temperature{
+    /* padding: 5px; */
+
+    font-size: 52px;
+}
+
+.iconContainer{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    width: 50%;
+    height: 100%;
+
+    box-sizing: border-box;
+}
+.iconContainer img{
+
+    width: 60%;
+}
