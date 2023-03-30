@@ -5,7 +5,7 @@
 
     width: 95%;
     height: 100%;
-    margin: 1rem 2rem;
+    margin: 2rem;
 
     background-color: rgb(125, 193, 220);
     color: whitesmoke;
@@ -14,4 +14,5 @@
     border: 1px solid gray;
 
     overflow: hidden;
+    box-sizing: border-box;
 }

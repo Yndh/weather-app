@@ -9,7 +9,7 @@ import googleMarker from "../icons/googleMarker.webp";
 
 function Map() {
   // Berlin coordinates
-  const [position, setPosition] = useState([52.51, 13.38]);
+  const [position, setPosition] = useState([52.24, 21.00]);
 
   const customIcon = new Icon({
     iconUrl: googleMarker,
@@ -21,7 +21,6 @@ function Map() {
   const mapClick = (event) => {
     const latlng = event.latlng;
     setPosition([latlng.lat, latlng.lng]);
-    console.log(position);
   };
 
   function MyComponent() {
