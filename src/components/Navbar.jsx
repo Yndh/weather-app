@@ -1,9 +1,13 @@
 // import { AntDesign } from "@expo/vector-icons";
 import '../styles/Navbar.css'
 import { VscMapFilled } from "react-icons/vsc";
-import { AiOutlineAntCloud, AiFillCloud, AiFillSetting } from "react-icons/ai";
+import {
+  AiOutlineAntCloud,
+  AiFillCloud,
+} from "react-icons/ai";
 import { WiStrongWind } from "react-icons/wi";
 import { GoMarkGithub } from "react-icons/go";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 
 function Navbar(props){
   return (
@@ -26,10 +30,17 @@ function Navbar(props){
           <VscMapFilled />
           <span>Map</span>
         </button>
-        <button>
-          <AiFillSetting />
-          <span>Settings</span>
-        </button>
+        {props.darkMode ? (
+          <button onClick={props.onToggleDarkMode}>
+            <MdDarkMode />
+            <span>Dark Mode</span>
+          </button>
+        ) : (
+          <button onClick={props.onToggleDarkMode}>
+            <MdLightMode />
+            <span>Light Mode</span>
+          </button>
+        )}
       </div>
       <div className="githubButton">
         <a href="https://github.com/Yndh/weather-app" target="_blank">

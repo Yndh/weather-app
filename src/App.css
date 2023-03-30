@@ -8,14 +8,31 @@
   height: 100vh;
   padding: 2rem;
 
-  background: #0b1320;
+  background: var(--bg-color);
 
   overflow-y: hidden;
   overflow-x: hidden;
   box-sizing: border-box;
+  transition: .3s;
 }
 
-.weatherContainer{
+.darkMode {
+  --bg-color: #0b1320;
+  --primary-color: #212d3c;
+  --secondary-color: #34455d;
+  --font-color: white;
+  --accent-color: #92b2e6;
+}
+
+.lightMode {
+  --bg-color: #FFFFFF;
+  --primary-color: #F5F5F5;
+  --secondary-color: #e6e6e6;
+  --font-color: #333333;
+  --accent-color: #484848;
+}
+
+.weatherContainer {
   display: flex;
   justify-content: center;
   align-items: center;

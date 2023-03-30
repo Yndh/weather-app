@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import "./App.css";
 import Navbar from "./components/Navbar";
@@ -13,6 +13,14 @@ function App() {
   const [showWeather, setShowWeather] = useState(true);
   const [showMap, setShowMap] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem("darkMode") ||
+      (window.matchMedia("(prefers-color-scheme: dark)").matches ? true : false)
+  );
+
+  useEffect(() => {
+    localStorage.setItem("darkMode", darkMode);
+  }, [darkMode]);
 
   const toggleWeather = () => {
     setShowWeather(true);
@@ -32,13 +40,19 @@ function App() {
     setShowMap(false);
   };
 
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
-    <div className="App">
+    <div className={`App ${darkMode ? "darkMode" : "lightMode"}`}>
       <Navbar
         onToggleWeather={toggleWeather}
         showWeather={showWeather}
         onToggleMap={toggleMap}
         showMap={showMap}
+        onToggleDarkMode={toggleDarkMode}
+        darkMode={darkMode}
       />
 
       {/* Weather */}

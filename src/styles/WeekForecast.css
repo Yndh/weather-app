@@ -8,8 +8,8 @@
     width: 30%;
     padding: 1rem 2rem;
 
-    background: #212d3c;
-    color: white;
+    background: var(--primary-color);
+    color: var(--font-color);
     border-radius: 20px;
 
     box-sizing: border-box;

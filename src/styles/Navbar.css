@@ -8,7 +8,8 @@
     width: 5%;
     padding: 2rem 0;
 
-    background: #212d3c;
+    background: var(--primary-color);
+    color: var(--font-color);
     border-radius: 20px;
 
     box-sizing: border-box;
@@ -27,7 +28,7 @@
 
     font-size: 36px;
 
-    color: white;
+    color: var(--font-color);
     background: transparent;
     outline: none;
     border: none;
@@ -62,8 +63,8 @@
 
     font-size: 42px;
 
-    color: #92b2e6;
-    background: #34455d;
+    color: var(--accent-color);
+    background: var(--secondary-color);
 
     border-radius: 10px;
     box-sizing: border-box;
@@ -90,4 +91,7 @@
     flex-direction: column;
 
     height: 1%;
+}
+.githubButton a{
+    text-decoration: none;
 }
