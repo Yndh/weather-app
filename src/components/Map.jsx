@@ -2,7 +2,7 @@ import "../styles/Map.css";
 import { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import { Icon } from "leaflet";
-import L from 'leaflet'
+import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import googleMarker from "../icons/googleMarker.webp";
 // --- ---------------------------------- ---
@@ -10,7 +10,6 @@ import googleMarker from "../icons/googleMarker.webp";
 function Map() {
   // Berlin coordinates
   const [position, setPosition] = useState([52.51, 13.38]);
-  const [city, setCity] = useState("Berlin");
 
   const customIcon = new Icon({
     iconUrl: googleMarker,
@@ -19,17 +18,10 @@ function Map() {
     popupAnchor: [0, -40],
   });
 
-
   const mapClick = (event) => {
     const latlng = event.latlng;
     setPosition([latlng.lat, latlng.lng]);
-    const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latlng.lat}&lon=${latlng.lng}&zoom=18&addressdetails=1`;
-    console.log(url);
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setCity(data.address.city || data.address.town || data.address.village);
-      });
+    console.log(position);
   };
 
   function MyComponent() {
@@ -38,7 +30,7 @@ function Map() {
     return null;
   }
 
- return (
+  return (
     <div className="map" style={{ zIndex: 0 }}>
       <MapContainer
         center={position}
@@ -52,7 +44,9 @@ function Map() {
         />
 
         <Marker position={position} icon={customIcon}>
-          <Popup>{city}</Popup>
+          <Popup>
+            x: {position[0]}, z: {position[1]}
+          </Popup>
         </Marker>
 
         <MyComponent />
