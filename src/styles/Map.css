@@ -1,0 +1,17 @@
+.map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 95%;
+    height: 100%;
+    margin: 1rem 2rem;
+
+    background-color: rgb(125, 193, 220);
+    color: whitesmoke;
+
+    border-radius: 20px;
+    border: 1px solid gray;
+
+    overflow: hidden;
+}
