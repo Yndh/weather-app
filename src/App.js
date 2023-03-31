@@ -17,7 +17,7 @@ function App() {
       (window.matchMedia("(prefers-color-scheme: dark)").matches ? true : false)
   );
   const [position, setPosition] = useState(
-    JSON.parse(localStorage.getItem("position")) || [52.24, 21.0]
+    JSON.parse(localStorage.getItem("position")) || [31.99,-102.07]
   );
   const [weatherData, setWeatherData] = useState(null);
 
@@ -52,6 +52,7 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         setWeatherData(data);
+        console.log(data);
       })
       .catch((error) => {
         console.error("Error fetching weather data", error);
@@ -61,7 +62,7 @@ function App() {
   if (!weatherData) {
     return (
       <div className="weatherContainer">
-        <h1>Lodaing</h1>
+        <h1>Loading</h1>
       </div>
     );
   }

@@ -25,7 +25,7 @@ function WeekForecast(){
         <div className="dayForecastContainer">
           <p className="day">Thursday</p>
           <p className="weather">
-            <img src={cloud} />
+            <img src={cloud}  />
             Cloud
           </p>
           <p className="dayNum">

@@ -33,12 +33,12 @@ function Weather(props) {
     <div className="forecastContainer">
       <div className="forecastInfo">
         <h1 className="cityName">{props.weatherData.name ? props.weatherData.name : 'No city name'}</h1>
-        <span className="countryName">Polska</span>
+        <span className="countryName">{props.weatherData.sys.country}</span>
 
         <h1 className="temperature">{props.weatherData.main.temp}°C</h1>
       </div>
       <div className="iconContainer">
-        <img src={icon} />
+        <img src={icon} alt={props.weatherData.weather[0].main} />
       </div>
     </div>
   );
