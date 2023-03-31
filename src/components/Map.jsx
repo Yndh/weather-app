@@ -18,6 +18,7 @@ function Map(props) {
   const mapClick = (event) => {
     const latlng = event.latlng;
     props.setPosition([latlng.lat, latlng.lng]);
+    props.setApiMethod('cords');
   };
 
   function MyComponent() {
@@ -31,12 +32,16 @@ function Map(props) {
       <MapContainer
         center={props.position}
         zoom={6}
+        minZoom={2}
         scrollWheelZoom={true}
-        style={{ width: "100%", height: "100%", zIndex: 2 }}
+        style={{ width: "100%", height: "100%", zIndex: 2, background: 'transparent'}}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          // Realistic map
+          // url="https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg"
           attribution='Map data &copy; <a href="https://www.openstreetmap.org/"  target="_blank">OpenStreetMap</a> contributors'
+          noWrap={true}
         />
 
         <Marker position={props.position} icon={customIcon}>

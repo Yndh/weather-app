@@ -6,6 +6,7 @@ import haze from "../icons/haze.svg";
 import rain from "../icons/rain.svg";
 import snow from "../icons/snow.svg";
 import storm from "../icons/storm.svg";
+import CountryList from "./CountryList.jsx";
 
 function Weather(props) {
   const [icon, setIcon] = useState(cloud)
@@ -32,8 +33,12 @@ function Weather(props) {
   return (
     <div className="forecastContainer">
       <div className="forecastInfo">
-        <h1 className="cityName">{props.weatherData.name ? props.weatherData.name : 'No city name'}</h1>
-        <span className="countryName">{props.weatherData.sys.country}</span>
+        <h1 className="cityName">
+          {props.weatherData.name ? props.weatherData.name : "No city name"}
+        </h1>
+        <span className="countryName">
+          {CountryList[props.weatherData.sys.country]}
+        </span>
 
         <h1 className="temperature">{props.weatherData.main.temp}°C</h1>
       </div>

@@ -17,9 +17,12 @@ function App() {
       (window.matchMedia("(prefers-color-scheme: dark)").matches ? true : false)
   );
   const [position, setPosition] = useState(
-    JSON.parse(localStorage.getItem("position")) || [31.99,-102.07]
+    JSON.parse(localStorage.getItem("position")) || [31.99, -102.07]
   );
   const [weatherData, setWeatherData] = useState(null);
+  const [fiveDayForecast, setFiveDayForecast] = useState(null);
+  const [apiMethod, setApiMethod] = useState("cords");
+  const [cityName, setCityName] = useState("Midland");
 
   useEffect(() => {
     localStorage.setItem("darkMode", darkMode);
@@ -45,24 +48,48 @@ function App() {
 
   useEffect(() => {
     const apiKey = "f8bce471cd12c58b7a69ca1e399e9dec";
-
+    console.log(apiMethod);
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${position[0]}&lon=${position[1]}&units=metric&appid=${apiKey}`
+      apiMethod === "cords"
+        ? `https://api.openweathermap.org/data/2.5/weather?lat=${position[0]}&lon=${position[1]}&units=metric&appid=${apiKey}`
+        : `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`
     )
       .then((response) => response.json())
       .then((data) => {
-        setWeatherData(data);
-        console.log(data);
+        if (data.cod == 200) {
+          setWeatherData(data);
+          console.log(data);
+        }
       })
       .catch((error) => {
         console.error("Error fetching weather data", error);
       });
-  }, [position]);
 
-  if (!weatherData) {
+    fetch(
+      apiMethod === "cords"
+        ? `https://api.openweathermap.org/data/2.5/forecast?lat=${position[0]}&lon=${position[1]}&cnt=40&appid=${apiKey}`
+        : `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&cnt=40&appid=${apiKey}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.cod == 200) {
+          setFiveDayForecast(data);
+          console.log("--------------");
+          console.log(fiveDayForecast);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching weather data", error);
+      });
+  }, [position, cityName]);
+
+  if (!weatherData || !fiveDayForecast) {
     return (
-      <div className="weatherContainer">
-        <h1>Loading</h1>
+      <div className={`App ${darkMode ? "darkMode" : "lightMode"}`}>
+        <div className="loaderContainer">
+          <span>{"{"}</span>
+          <span>{"}"}</span>
+        </div>
       </div>
     );
   }
@@ -82,17 +109,29 @@ function App() {
       {showWeather && (
         <div className="weatherContainer">
           <div className="mainContainer">
-            <SearchBar />
-            <Weather weatherData={weatherData} />
-            <WeatherInfo weatherData={weatherData} />
-            <AirConditions weatherData={weatherData} />
+            <SearchBar setCityName={setCityName} setApiMethod={setApiMethod} />
+            {weatherData.cod === 200 ? (
+              <>
+                <Weather weatherData={weatherData} />
+                <WeatherInfo weatherData={weatherData} />
+                <AirConditions weatherData={weatherData} />
+              </>
+            ) : (
+              <p>Error fetching weather data</p>
+            )}
           </div>
-          <WeekForecast />
+          <WeekForecast fiveDayForecast={fiveDayForecast} />
         </div>
       )}
 
       {/* Map */}
-      {showMap && <Map position={position} setPosition={setPosition} />}
+      {showMap && (
+        <Map
+          position={position}
+          setPosition={setPosition}
+          setApiMethod={setApiMethod}
+        />
+      )}
     </div>
   );
 }
