@@ -1,7 +1,7 @@
 import '../styles/AirConditions.css'
 import { WiStrongWind } from "react-icons/wi";
 
-function AirConditions() {
+function AirConditions(props) {
   return (
     <div className="airConditionContainer">
       <p>Air Conditions</p>
@@ -11,7 +11,7 @@ function AirConditions() {
           <WiStrongWind className="icon" />
            Wind
         </p>
-        <span>3.07 km/h</span>
+        <span>{props.weatherData.wind.speed} km/h</span>
       </div>
     </div>
   );

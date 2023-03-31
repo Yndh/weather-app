@@ -12,37 +12,59 @@ import Map from "./components/Map";
 function App() {
   const [showWeather, setShowWeather] = useState(true);
   const [showMap, setShowMap] = useState(false);
-  const [showSettings, setShowSettings] = useState(false);
   const [darkMode, setDarkMode] = useState(
     localStorage.getItem("darkMode") ||
       (window.matchMedia("(prefers-color-scheme: dark)").matches ? true : false)
   );
+  const [position, setPosition] = useState(
+    JSON.parse(localStorage.getItem("position")) || [52.24, 21.0]
+  );
+  const [weatherData, setWeatherData] = useState(null);
 
   useEffect(() => {
     localStorage.setItem("darkMode", darkMode);
   }, [darkMode]);
 
+  useEffect(() => {
+    localStorage.setItem("position", JSON.stringify(position));
+  }, [position]);
+
   const toggleWeather = () => {
     setShowWeather(true);
     setShowMap(false);
-    setShowSettings(false);
   };
 
   const toggleMap = () => {
     setShowMap(true);
     setShowWeather(false);
-    setShowSettings(false);
-  };
-
-  const toggleSettings = () => {
-    setShowSettings(true);
-    setShowWeather(false);
-    setShowMap(false);
   };
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
+
+  useEffect(() => {
+    const apiKey = "f8bce471cd12c58b7a69ca1e399e9dec";
+
+    fetch(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${position[0]}&lon=${position[1]}&units=metric&appid=${apiKey}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setWeatherData(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching weather data", error);
+      });
+  }, [position]);
+
+  if (!weatherData) {
+    return (
+      <div className="weatherContainer">
+        <h1>Lodaing</h1>
+      </div>
+    );
+  }
 
   return (
     <div className={`App ${darkMode ? "darkMode" : "lightMode"}`}>
@@ -60,16 +82,16 @@ function App() {
         <div className="weatherContainer">
           <div className="mainContainer">
             <SearchBar />
-            <Weather />
-            <WeatherInfo />
-            <AirConditions />
+            <Weather weatherData={weatherData} />
+            <WeatherInfo weatherData={weatherData} />
+            <AirConditions weatherData={weatherData} />
           </div>
           <WeekForecast />
         </div>
       )}
 
       {/* Map */}
-      {showMap && <Map />}
+      {showMap && <Map position={position} setPosition={setPosition} />}
     </div>
   );
 }

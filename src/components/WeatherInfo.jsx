@@ -2,7 +2,7 @@ import "../styles/WeatherInfo.css";
 import { WiThermometer, WiThermometerExterior, WiWindy } from "react-icons/wi";
 import { TiWaves } from "react-icons/ti";
 
-function WeatherInfo() {
+function WeatherInfo(props) {
   return (
     <div className="weatherInfoContainer">
       <p className="title">Weather Info</p>
@@ -13,28 +13,28 @@ function WeatherInfo() {
             <WiThermometerExterior className="icon" />
             Min Temp
           </p>
-          <span>-3°C</span>
+          <span>{props.weatherData.main.temp_min}°C</span>
         </div>
         <div className="infoContainer">
           <p>
             <WiThermometer className="icon" />
             Max Temp
           </p>
-          <span>0.98°C</span>
+          <span>{props.weatherData.main.temp_max}°C</span>
         </div>
         <div className="infoContainer">
           <p>
             <TiWaves className="icon" />
             Feels like
           </p>
-          <span>-3°C</span>
+          <span>{props.weatherData.main.feels_like}°C</span>
         </div>
         <div className="infoContainer">
           <p>
             <WiWindy className="icon" />
             Humidity
           </p>
-          <span>64%</span>
+          <span>{props.weatherData.main.humidity}%</span>
         </div>
       </div>
     </div>

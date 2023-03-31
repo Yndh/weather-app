@@ -2,14 +2,11 @@ import "../styles/Map.css";
 import { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import { Icon } from "leaflet";
-import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import googleMarker from "../icons/googleMarker.webp";
-// --- ---------------------------------- ---
 
-function Map() {
-  // Berlin coordinates
-  const [position, setPosition] = useState([52.24, 21.00]);
+function Map(props) {
+  
 
   const customIcon = new Icon({
     iconUrl: googleMarker,
@@ -20,7 +17,7 @@ function Map() {
 
   const mapClick = (event) => {
     const latlng = event.latlng;
-    setPosition([latlng.lat, latlng.lng]);
+    props.setPosition([latlng.lat, latlng.lng]);
   };
 
   function MyComponent() {
@@ -32,7 +29,7 @@ function Map() {
   return (
     <div className="map" style={{ zIndex: 0 }}>
       <MapContainer
-        center={position}
+        center={props.position}
         zoom={6}
         scrollWheelZoom={true}
         style={{ width: "100%", height: "100%", zIndex: 2 }}
@@ -42,9 +39,9 @@ function Map() {
           attribution='Map data &copy; <a href="https://www.openstreetmap.org/"  target="_blank">OpenStreetMap</a> contributors'
         />
 
-        <Marker position={position} icon={customIcon}>
+        <Marker position={props.position} icon={customIcon}>
           <Popup>
-            x: {position[0]}, z: {position[1]}
+            x: {props.position[0]}, z: {props.position[1]}
           </Popup>
         </Marker>
 
