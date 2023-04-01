@@ -8,7 +8,6 @@ import haze from "../icons/haze.svg";
 import { useState, useEffect } from "react";
 
 function WeekForecast(props) {
-  const [icon, setIcon] = useState(cloud);
 
   const list = props.fiveDayForecast.list.filter(
     (_, index) => (index + 1) % 8 === 0
@@ -39,8 +38,8 @@ function WeekForecast(props) {
       <div className="dayForecastContainer" key={item.dt}>
         <p className="day">{dayName}</p>
         <p className="weather">
-          <img src={icon} alt={item.weather[0].description} />
-          {item.weather[0].description}
+          <img src={icon} alt={item.weather[0].main} />
+          {item.weather[0].main}
         </p>
         <p className="dayNum">
           <span>{date.getDate()}</span>

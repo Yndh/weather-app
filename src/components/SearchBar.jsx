@@ -4,7 +4,6 @@ import { FaSearch } from "react-icons/fa";
 function SearchBar(props) {
   const inputHandler = (e) => {
     props.setCityName(e.target.value);
-    console.log(e.target.value);
     props.setApiMethod('name')
   }
 

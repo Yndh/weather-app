@@ -19,10 +19,10 @@ function App() {
   const [position, setPosition] = useState(
     JSON.parse(localStorage.getItem("position")) || [31.99, -102.07]
   );
+  const [cityName, setCityName] = useState("Midland");
   const [weatherData, setWeatherData] = useState(null);
   const [fiveDayForecast, setFiveDayForecast] = useState(null);
   const [apiMethod, setApiMethod] = useState("cords");
-  const [cityName, setCityName] = useState("Midland");
 
   useEffect(() => {
     localStorage.setItem("darkMode", darkMode);
@@ -58,7 +58,6 @@ function App() {
       .then((data) => {
         if (data.cod == 200) {
           setWeatherData(data);
-          console.log(data);
         }
       })
       .catch((error) => {
@@ -74,8 +73,13 @@ function App() {
       .then((data) => {
         if (data.cod == 200) {
           setFiveDayForecast(data);
-          console.log("--------------");
-          console.log(fiveDayForecast);
+          // console.log("--------------");
+          // console.log(fiveDayForecast);
+          if (apiMethod == "name") {
+            console.log(Object.values(data.coord).reverse());
+            setPosition(Object.values(data.coord).reverse());
+            setApiMethod("cords");
+          }
         }
       })
       .catch((error) => {
