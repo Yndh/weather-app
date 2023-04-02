@@ -7,17 +7,19 @@ WeatherWise pozwala na sprawdzenie aktualnej pogody i prognozy na 5 kolejnych dn
 
 #### 🌐 Podgląd na żywo
 
-👉 Zobacz apliakcje [WeatherWise](https://yndh.github.io/weather-app/).
+Podgląd na żywo [WeatherWise](https://yndh.github.io/weather-app/).
 
 
 ## 🧐 Funkcjonalności
 
-- Wybranie miasta z wyszukiwarki
-- Wybranie miasta z mapy
-- Informacje o pogodzie
-- Prognoza na następne 5 dni
-- Wybrane miasto jest zapisywane
-- Ciemny i jasny motyw
+* Wyszukiwanie i wybieranie miasta z bazy danych OpenWeatherMap
+* Wybieranie miasta z interaktywnej mapy
+* Wyświetlanie aktualnych informacji o temperaturze, wilgotności, ciśnieniu i prędkości wiatru dla wybranego miasta
+* Wyświetlanie prognozy pogody na 5 kolejnych dni dla wybranego miasta
+* Wybrane miasto jest zapisywane
+* Wsparcie dla trybu jasnego i ciemnego motywu interfejsu użytkownika.
+
+
 
 ## 💻 Języki i API
 
