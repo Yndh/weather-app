@@ -7,7 +7,7 @@ WeatherWise pozwala na sprawdzenie aktualnej pogody i prognozy na 5 kolejnych dn
 
 #### 🌐 Podgląd na żywo
 
-Podgląd na żywo [WeatherWise](https://yndh.github.io/weather-app/).
+Sprawdź aplikację [WeatherWise](https://yndh.github.io/weather-app/).
 
 
 ## 🧐 Funkcjonalności
