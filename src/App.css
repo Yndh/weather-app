@@ -10,7 +10,7 @@
 
   background: var(--bg-color);
 
-  /* overflow-y: hidden; */
+  overflow-y: hidden;
   overflow-x: hidden;
   box-sizing: border-box;
   transition: .3s;
@@ -94,6 +94,8 @@
     flex-direction: column;
 
     height: auto;
+
+    overflow-y: scroll;
   }
   .weatherContainer{
     flex-direction: column;
