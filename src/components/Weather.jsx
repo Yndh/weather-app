@@ -1,4 +1,5 @@
 import "../styles/Weather.css";
+import "../styles/Component.css";
 import { useState, useEffect } from "react";
 import clear from "../icons/clear.svg";
 import cloud from "../icons/cloud.svg";
@@ -31,7 +32,7 @@ function Weather(props) {
   }, [props.weatherData.weather[0].id]);
 
   return (
-    <div className="forecastContainer">
+    <div className="componentContainer weather">
       <div className="forecastInfo">
         <h1 className="cityName">
           {props.weatherData.name ? props.weatherData.name : "No city name"}
@@ -42,7 +43,7 @@ function Weather(props) {
 
         <h1 className="temperature">{props.weatherData.main.temp}°C</h1>
       </div>
-      <div className="iconContainer">
+      <div className="forecastInfo">
         <img src={icon} alt={props.weatherData.weather[0].main} />
       </div>
     </div>

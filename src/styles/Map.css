@@ -16,3 +16,11 @@
     overflow: hidden;
     box-sizing: border-box;
 }
+@media only screen and (max-width: 768px){
+    .map{
+        /* width: 50%; */
+        height: 100vh;
+        
+        box-sizing: border-box;
+    }
+}

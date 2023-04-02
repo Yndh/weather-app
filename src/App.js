@@ -64,6 +64,10 @@ function App() {
         console.error("Error fetching weather data", error);
       });
 
+      console.log(
+        `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&cnt=40&appid=${apiKey}`
+      );
+
     fetch(
       apiMethod === "cords"
         ? `https://api.openweathermap.org/data/2.5/forecast?lat=${position[0]}&lon=${position[1]}&cnt=40&appid=${apiKey}`
@@ -73,11 +77,10 @@ function App() {
       .then((data) => {
         if (data.cod == 200) {
           setFiveDayForecast(data);
-          // console.log("--------------");
-          // console.log(fiveDayForecast);
           if (apiMethod == "name") {
-            console.log(Object.values(data.coord).reverse());
-            setPosition(Object.values(data.coord).reverse());
+            console.log(data.city.coord);
+            console.log(Object.values(data.city.coord));
+            setPosition(Object.values(data.city.coord));
             setApiMethod("cords");
           }
         }

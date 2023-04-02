@@ -10,7 +10,7 @@
 
   background: var(--bg-color);
 
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
   overflow-x: hidden;
   box-sizing: border-box;
   transition: .3s;
@@ -63,7 +63,7 @@
   /* flex-direction: column; */
 
   width: 100%;
-  height: 100%;
+  height: 100vh;
 
   color: var(--accent-color);
 }
@@ -86,5 +86,18 @@
   to {
     transform: scale(0.8);
     opacity: 0.5;
+  }
+}
+
+@media only screen and (max-width: 768px){
+  .App{
+    flex-direction: column;
+
+    height: auto;
+  }
+  .weatherContainer{
+    flex-direction: column;
+    
+    width: 100%;
   }
 }

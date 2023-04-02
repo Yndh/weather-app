@@ -14,22 +14,18 @@
 
     box-sizing: border-box;
 }
-.titleContainer{
-    display: flex;
-    align-items: center;
-
-    width: 100%;
-    height: 5%;
-}
-.titleContainer .title{
+.weekForecastContainer .title{
     align-self: flex-start;
 
+    width: 100%;
     font-size: 14px;
 
     opacity: .7;
 
     text-transform: uppercase;
     letter-spacing: 1px;
+
+    box-sizing: border-box;
 }
 .daysForecastContainer{
     display: flex;
@@ -38,7 +34,9 @@
     flex-direction: column;
 
     width: 100%;
-    height: 95%;
+    height: auto;
+
+    box-sizing: border-box;
 }
 .dayForecastContainer{
     display: flex;
@@ -48,14 +46,16 @@
 
     width: 100%;
     height: 10%;
-    /* margin-top: 1.5rem; */
-    margin: 1.5rem 1rem;
+    margin-top: 2rem;
     padding: 3rem 0;
 
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 
     text-transform: capitalize;
     box-sizing: border-box;
+}
+.dayForecastContainer:nth-child(1){
+    margin-top: 0;
 }
 .dayForecastContainer:last-child{
     border: none;
@@ -65,7 +65,7 @@
 
     opacity: .7;
 }
-.dayForecastContainer .weather{
+.dayForecastContainer .weatherTitle{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,7 +74,7 @@
     font-size: 16px;
     font-weight: bold;
 }
-.dayForecastContainer .weather img{
+.dayForecastContainer .weatherTitle img{
     /* height: 10%; */
     width: 15%;
     margin-right: 15px;
@@ -84,4 +84,21 @@
 }
 .dayForecastContainer .dayNum span:nth-child(2)::before{
     content: '/';
+}
+
+@media only screen and (max-width: 768px){
+    .weekForecastContainer{
+        width: 100%;
+        height: 20%;
+        margin-bottom: 35%;
+    }
+    .daysForecastContainer{
+        /* flex-direction: row; */
+        flex-wrap: wrap;
+    }
+    .dayForecastContainer{
+        /* flex-direction: column; */
+
+        width: 100%;
+    }
 }

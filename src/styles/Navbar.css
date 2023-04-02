@@ -92,6 +92,48 @@
 
     height: 1%;
 }
-.githubButton a{
+
+.githubButton a {
     text-decoration: none;
+}
+@media only screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+
+
+        height: 15%;
+        width: 100vw;
+        padding: 1.5rem 1rem;
+
+        background: var(--bg-color);
+
+        border-radius: 0;
+
+        box-sizing: border-box;
+        z-index: 2;
+    }
+    .navButtons {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: row;
+
+        height: 75%;
+        width: 100%;
+        padding: 1rem;
+
+        background: var(--primary-color);
+        border-radius: 20px;
+    }
+    .iconContainer{
+        display: none !important;
+    }
+    .githubButton{
+        display: none;
+    }
 }

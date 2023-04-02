@@ -1,10 +1,11 @@
 import "../styles/WeatherInfo.css";
+import "../styles/Component.css";
 import { WiThermometer, WiThermometerExterior, WiWindy } from "react-icons/wi";
 import { TiWaves } from "react-icons/ti";
 
 function WeatherInfo(props) {
   return (
-    <div className="weatherInfoContainer">
+    <div className="componentContainer weatherInfo">
       <p className="title">Weather Info</p>
 
       <div className="info">
@@ -13,7 +14,7 @@ function WeatherInfo(props) {
             <WiThermometerExterior className="icon" />
             Min Temp
           </p>
-          <span>{props.weatherData.main.temp_min}°C</span>
+          <span >{props.weatherData.main.temp_min}°C</span>
         </div>
         <div className="infoContainer">
           <p>

@@ -36,24 +36,22 @@ function WeekForecast(props) {
 
     return (
       <div className="dayForecastContainer" key={item.dt}>
-        <p className="day">{dayName}</p>
-        <p className="weather">
+        <span className="day">{dayName}</span>
+        <span className="weatherTitle">
           <img src={icon} alt={item.weather[0].main} />
           {item.weather[0].main}
-        </p>
-        <p className="dayNum">
+        </span>
+        <span className="dayNum">
           <span>{date.getDate()}</span>
           <span>{date.getMonth() + 1}</span>
-        </p>
+        </span>
       </div>
     );
   });
 
   return (
     <div className="weekForecastContainer">
-      <div className="titleContainer">
-        <p className="title">5-DAY FORECAST</p>
-      </div>
+      <p className="title">5-DAY FORECAST</p>
       <div className="daysForecastContainer">{days}</div>
     </div>
   );
