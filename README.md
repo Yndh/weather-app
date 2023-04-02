@@ -17,7 +17,7 @@ Podgląd na żywo [WeatherWise](https://yndh.github.io/weather-app/).
 * Wyświetlanie aktualnych informacji o temperaturze, wilgotności, ciśnieniu i prędkości wiatru dla wybranego miasta
 * Wyświetlanie prognozy pogody na 5 kolejnych dni dla wybranego miasta
 * Wybrane miasto jest zapisywane
-* Wsparcie dla trybu jasnego i ciemnego motywu interfejsu użytkownika.
+* Wsparcie dla trybu jasnego i ciemnego motywu interfejsu użytkownika
 
 
 
