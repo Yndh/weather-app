@@ -35,8 +35,8 @@ Sprawdź aplikację [WeatherWise](https://yndh.github.io/weather-app/).
 
 ## 🚀 Jak uruchomić projekt
 
-1. Sklonuj repozytorium na swój komputer
-2. W terminalu przejdź do lokalizacji projektu
-3. Uruchom komendę `npm install` aby zainstalować wymagane zależności
-4. Uruchom komendę `npm start` aby uruchomić aplikację w trybie deweloperskim
-#### To wszystko! Teraz projekt powinien działać na `localhost:3000`.
+1. Sklonuj repozytorium `git clone https://github.com/Yndh/weather-app.git`
+2. Przejdź do projektu `cd weather-app`
+3. Pobierz wymagania `npm install`
+4. Uruchom aplikacje komendą `npm start`
+#### To wszystko! Teraz aplikacja będzie dostępna na `localhost:3000`.
